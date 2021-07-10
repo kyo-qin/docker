@@ -1,0 +1,1 @@
+docker build -t 50034486/eureka:v1 --build-arg  JAR_FILE=app.jar .
