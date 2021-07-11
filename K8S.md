@@ -3,6 +3,7 @@ K8S部署说明
 k8s中定义无选择器的Service，定义外部EndPoints
 例：
 （以下配置需要k8s运维协助部署）
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -22,7 +23,7 @@ subsets:
       - ip: 192.0.2.42 #外部真实数据库地址
     ports:
       - port: 3307  #外部真实数据库端口
-
+```
 SpringBoot打包时，定义的数据库地址这样写：
 jdbc:mysql://boolean-mysql:3306/test?user=xxx&password=xxx
 端口使用3306，真实端口在上面配置文件里面映射了，此例为3307
@@ -30,6 +31,7 @@ mysql-service就是上面定义的service名称
 
 2，springboot的k8s部署文件
 例：
+```
 kind: Service
 apiVersion: v1
 metadata:
@@ -64,12 +66,13 @@ spec:
           image: 镜像名称，用打包导入的镜像名称，比如：boolean-img:v1
           ports:
             - containerPort: 8080
-
+```
 和上面那个mysql的配置结合起来使用，现部署mysql的，再部署springboot的
 
 最后用 http://node的ip地址:32082来访问
 
 3，nginx+vue的k8s部署文件
+```
 kind: Service
 apiVersion: v1
 metadata:
@@ -104,7 +107,7 @@ spec:
           image: 镜像名称，用打包导入的镜像名称，比如：boolean-img:v1
           ports:
             - containerPort: 80
-
+```
 vue打包的时候，服务的的地址这么配置 http://boolean-springboot:8080/后面跟你的路径
 
 最后用http://nodeip:32083/xxx来访问前端服务
