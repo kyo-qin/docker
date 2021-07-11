@@ -1,5 +1,5 @@
-K8S部署说明
-1，如何访问外部数据库
+# K8S部署说明
+## 1，如何访问外部数据库
 k8s中定义无选择器的Service，定义外部EndPoints
 例：
 （以下配置需要k8s运维协助部署）
@@ -29,7 +29,7 @@ jdbc:mysql://boolean-mysql:3306/test?user=xxx&password=xxx
 端口使用3306，真实端口在上面配置文件里面映射了，此例为3307
 mysql-service就是上面定义的service名称
 
-2，springboot的k8s部署文件
+## 2，springboot的k8s部署文件
 例：
 ```
 kind: Service
@@ -71,7 +71,7 @@ spec:
 
 最后用 http://node的ip地址:32082来访问
 
-3，nginx+vue的k8s部署文件
+## 3，nginx+vue的k8s部署文件
 ```
 kind: Service
 apiVersion: v1
