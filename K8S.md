@@ -25,7 +25,7 @@ subsets:
       - port: 3307  #外部真实数据库端口
 ```
 SpringBoot打包时，定义的数据库地址这样写：
-jdbc:mysql://boolean-mysql:3306/test?user=xxx&password=xxx
+jdbc:mysql://boolean-mysql:3306/数据库名称?user=xxx&password=xxx
 端口使用3306，真实端口在上面配置文件里面映射了，此例为3307
 mysql-service就是上面定义的service名称
 
