@@ -1,3 +1,4 @@
+K8S部署说明
 1，如何访问外部数据库
 k8s中定义无选择器的Service，定义外部EndPoints
 例：
